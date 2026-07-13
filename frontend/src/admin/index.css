@@ -1,0 +1,83 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  .admin-app {
+    font-family: 'Inter', system-ui, sans-serif;
+    background-color: #FAFAFA;
+    color: #111827;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    min-height: 100vh;
+  }
+}
+
+@layer components {
+  /* Primary button — Tharamac Matrimony brand maroon */
+  .btn-primary {
+    @apply inline-flex items-center gap-2 rounded-lg px-4 py-2 text-sm font-medium text-white transition-colors;
+    background-color: #7B2032;
+  }
+  .btn-primary:hover {
+    background-color: #5C1825;
+  }
+  .btn-primary:active {
+    background-color: #3D1019;
+  }
+
+  /* Outline button */
+  .btn-outline {
+    @apply inline-flex items-center gap-2 rounded-lg border border-gray-300 px-4 py-2 text-sm font-medium text-gray-700 hover:bg-gray-50 transition-colors;
+  }
+
+  /* Card */
+  .card {
+    @apply rounded-xl bg-white;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.06), 0 2px 8px rgba(0,0,0,0.04);
+  }
+
+  /* Membership badges */
+  .badge-premium {
+    @apply rounded-full bg-purple-100 px-2 py-0.5 text-xs font-semibold text-purple-700;
+  }
+  .badge-gold {
+    @apply rounded-full bg-amber-100 px-2 py-0.5 text-xs font-semibold text-amber-700;
+  }
+  .badge-silver {
+    @apply rounded-full bg-gray-100 px-2 py-0.5 text-xs font-semibold text-gray-600;
+  }
+  .badge-diamond {
+    @apply rounded-full bg-blue-100 px-2 py-0.5 text-xs font-semibold text-blue-700;
+  }
+  .badge-verified {
+    @apply inline-flex items-center gap-1 rounded-full bg-emerald-50 px-2 py-0.5 text-xs font-semibold text-emerald-700;
+  }
+
+  /* Status pills */
+  .status-open {
+    @apply inline-flex items-center gap-1 text-xs font-medium text-orange-600;
+  }
+  .status-pending {
+    @apply inline-flex items-center gap-1 text-xs font-medium text-amber-600;
+  }
+  .status-resolved {
+    @apply inline-flex items-center gap-1 text-xs font-medium text-emerald-600;
+  }
+  .status-approved {
+    @apply inline-flex items-center gap-1 text-xs font-medium text-emerald-600;
+  }
+
+  /* Priority badges */
+  .priority-high {
+    @apply rounded-full bg-red-100 px-2.5 py-0.5 text-xs font-bold text-red-700 uppercase tracking-wide;
+  }
+  .priority-medium {
+    @apply rounded-full bg-orange-100 px-2.5 py-0.5 text-xs font-bold text-orange-700 uppercase tracking-wide;
+  }
+  .priority-low {
+    @apply rounded-full bg-green-100 px-2.5 py-0.5 text-xs font-bold text-green-700 uppercase tracking-wide;
+  }
+}

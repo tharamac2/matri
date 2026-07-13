@@ -1,0 +1,28 @@
+.search-bar-row {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+.search-input {
+  max-width: 480px;
+  flex: 1;
+}
+
+.search-filters {
+  margin-top: 14px;
+  padding: 18px 20px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  gap: 16px;
+  align-items: end;
+}
+
+.search-filter-range {
+  display: flex;
+  gap: 8px;
+}
+
+.search-filter-clear {
+  justify-self: start;
+}

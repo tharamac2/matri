@@ -1,0 +1,22 @@
+services:
+  - type: web
+    name: tharamac-matrimony-api
+    runtime: python
+    rootDir: backend
+    plan: free
+    buildCommand: pip install -r requirements_admin.txt
+    startCommand: alembic upgrade head && uvicorn app.main:app --host 0.0.0.0 --port $PORT
+    healthCheckPath: /health
+    envVars:
+      - key: PYTHON_VERSION
+        value: 3.12.7
+      - key: DATABASE_URL
+        value: sqlite:///./matrimony.db
+      - key: SECRET_KEY
+        generateValue: true
+      - key: ACCESS_TOKEN_EXPIRE_MINUTES
+        value: 60
+      - key: REFRESH_TOKEN_EXPIRE_MINUTES
+        value: 10080
+      - key: BACKEND_CORS_ORIGINS
+        value: '["https://tharamac-matrimony.vercel.app", "http://localhost:5173"]'

@@ -1,0 +1,33 @@
+.accepted-list {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.accepted-card {
+  display: flex;
+  gap: 16px;
+  padding: 16px;
+}
+
+.accepted-card-img {
+  width: 96px;
+  height: 96px;
+  border-radius: var(--radius-md);
+  object-fit: cover;
+  flex-shrink: 0;
+}
+
+.accepted-card-body {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.accepted-actions {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}

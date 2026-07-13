@@ -1,0 +1,45 @@
+.compare-table-wrap {
+  overflow-x: auto;
+  border-radius: var(--radius-lg);
+  background: var(--bg-card);
+  box-shadow: var(--shadow-float);
+}
+
+.compare-table {
+  border-collapse: collapse;
+  width: 100%;
+  min-width: 480px;
+}
+
+.compare-table th,
+.compare-table td {
+  padding: 12px 18px;
+  text-align: left;
+  border-bottom: 1px solid var(--ink-100, #f0e9e2);
+  font-size: 13px;
+  white-space: nowrap;
+}
+
+.compare-table thead th {
+  vertical-align: top;
+  border-bottom: 2px solid var(--ink-200, #e5dcd4);
+}
+
+.compare-table tbody th {
+  font-weight: 600;
+  color: var(--ink-600);
+  white-space: nowrap;
+}
+
+.compare-photo {
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-bottom: 8px;
+}
+
+.compare-name {
+  font-weight: 700;
+  font-size: 14px;
+}

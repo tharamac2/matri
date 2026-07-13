@@ -1,0 +1,53 @@
+/* Interest page layout comes from the shared .profile-card-grid / .card primitives in theme.css */
+
+.interest-tabs {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 20px;
+}
+
+.interest-tab {
+  border: 1px solid var(--ink-200, #e5dcd4);
+  background: transparent;
+  border-radius: var(--radius-pill, 999px);
+  padding: 8px 18px;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  color: var(--ink-500, #6b5f57);
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.interest-tab.active {
+  background: var(--rose-600, #b23a5c);
+  border-color: var(--rose-600, #b23a5c);
+  color: #fff;
+}
+
+.interest-tab-count {
+  background: rgba(255, 255, 255, 0.35);
+  border-radius: 999px;
+  padding: 1px 7px;
+  font-size: 11px;
+}
+
+.interest-tab:not(.active) .interest-tab-count {
+  background: var(--cream-200, #f1e6da);
+}
+
+.interest-message-preview {
+  font-size: 12px;
+  font-style: italic;
+  color: var(--ink-500, #6b5f57);
+  margin-top: 4px;
+}
+
+.interest-status-tag {
+  font-size: 11px;
+  text-transform: capitalize;
+  color: var(--gold-600, #a6762c);
+  margin-top: 4px;
+}
+

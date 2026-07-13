@@ -1,0 +1,315 @@
+.reg-page {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 32px 16px;
+  background:
+    radial-gradient(circle at 15% 20%, var(--rose-100) 0%, transparent 45%),
+    radial-gradient(circle at 85% 80%, var(--gold-400) 0%, transparent 35%),
+    var(--cream-100);
+}
+
+.reg-card {
+  width: 100%;
+  max-width: 460px;
+  background: var(--bg-card);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-float);
+  padding: 36px 34px 32px;
+}
+
+.reg-header h1 {
+  font-size: 24px;
+  color: var(--rose-600);
+  text-align: center;
+  margin-bottom: 14px;
+}
+
+.reg-progress {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  margin-bottom: 6px;
+}
+
+.reg-progress-bar {
+  height: 6px;
+  border-radius: 999px;
+  background: var(--cream-200);
+  overflow: hidden;
+}
+
+.reg-progress-bar > div {
+  height: 100%;
+  background: linear-gradient(90deg, var(--rose-500), var(--gold-500));
+  border-radius: 999px;
+  transition: width 0.3s ease;
+}
+
+.reg-progress span {
+  font-size: 11px;
+  color: var(--ink-400);
+  text-align: right;
+}
+
+.reg-error {
+  background: var(--danger-bg);
+  color: var(--danger);
+  font-size: 13px;
+  padding: 10px 14px;
+  border-radius: var(--radius-sm);
+  margin: 12px 0;
+}
+
+.reg-step h2 {
+  font-size: 20px;
+  margin-bottom: 4px;
+  text-align: center;
+}
+
+.reg-subtitle {
+  font-size: 13.5px;
+  color: var(--ink-400);
+  text-align: center;
+  margin-bottom: 18px;
+}
+
+.reg-options-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+  margin-top: 18px;
+}
+
+.reg-options-grid-2 {
+  grid-template-columns: 1fr 1fr;
+}
+
+.reg-option {
+  padding: 13px 10px;
+  border-radius: var(--radius-sm);
+  border: 1.5px solid var(--border-soft);
+  background: #fff;
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--ink-600);
+  cursor: pointer;
+  transition: var(--transition);
+}
+
+.reg-option:hover {
+  border-color: var(--rose-300);
+}
+
+.reg-option.selected {
+  background: var(--rose-500);
+  border-color: var(--rose-500);
+  color: #fff;
+  box-shadow: 0 6px 14px rgba(194, 65, 108, 0.28);
+}
+
+.reg-cta {
+  width: 100%;
+  margin-top: 24px;
+  padding: 13px;
+}
+
+.reg-back {
+  display: block;
+  margin: 12px auto 0;
+  background: none;
+  border: none;
+  color: var(--ink-400);
+  font-size: 13px;
+  cursor: pointer;
+}
+
+.reg-back:hover {
+  color: var(--ink-600);
+}
+
+.reg-footer-text {
+  text-align: center;
+  font-size: 13px;
+  color: var(--ink-400);
+  margin-top: 16px;
+}
+
+.reg-link-btn {
+  background: none;
+  border: none;
+  color: var(--rose-600);
+  font-weight: 600;
+  cursor: pointer;
+  font-size: inherit;
+  padding: 0;
+}
+
+.reg-otp-inputs {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  margin: 20px 0;
+}
+
+.reg-otp-box {
+  width: 50px;
+  height: 56px;
+  text-align: center;
+  font-size: 22px;
+  font-weight: 700;
+  border: 1.5px solid var(--border-soft);
+  border-radius: var(--radius-sm);
+  color: var(--ink-900);
+}
+
+.reg-otp-box:focus {
+  outline: none;
+  border-color: var(--rose-500);
+  box-shadow: 0 0 0 4px var(--rose-50);
+}
+
+.reg-otp-success {
+  text-align: center;
+  padding: 20px 0;
+}
+
+.reg-otp-check {
+  width: 64px;
+  height: 64px;
+  margin: 0 auto 14px;
+  border-radius: 50%;
+  background: #E7F6E8;
+  color: #2E7D32;
+  font-size: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  animation: fadeIn 0.3s ease-out;
+}
+
+.reg-grid-2 {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px;
+  margin-top: 8px;
+}
+
+.reg-photo-row {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  margin-top: 8px;
+}
+
+.reg-photo-preview {
+  width: 84px;
+  height: 84px;
+  border-radius: 50%;
+  background: var(--rose-50);
+  color: var(--rose-500);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  flex-shrink: 0;
+}
+
+.reg-photo-preview img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.reg-plans-header {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  margin-bottom: 18px;
+}
+
+.reg-plans-header h2 {
+  text-align: left;
+  margin: 0;
+}
+
+.reg-plans {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.reg-plan-card {
+  position: relative;
+  border: 1.5px solid var(--border-soft);
+  border-radius: var(--radius-md);
+  padding: 20px;
+}
+
+.reg-plan-card.featured {
+  border-color: var(--gold-500);
+  background: linear-gradient(180deg, #FFFBF2, #fff);
+}
+
+.reg-plan-name {
+  font-family: var(--font-heading);
+  font-size: 18px;
+  font-weight: 600;
+}
+
+.reg-plan-price {
+  font-size: 24px;
+  font-weight: 700;
+  color: var(--rose-600);
+  margin: 4px 0 12px;
+}
+
+.reg-plan-price span {
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--ink-400);
+}
+
+.reg-plan-card ul {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.reg-plan-card li {
+  font-size: 13px;
+  color: var(--ink-600);
+  padding-left: 20px;
+  position: relative;
+}
+
+.reg-plan-card li::before {
+  content: '✓';
+  position: absolute;
+  left: 0;
+  color: var(--success);
+  font-weight: 700;
+}
+
+.reg-success {
+  text-align: center;
+  padding: 20px 0;
+}
+
+.reg-success-icon {
+  font-size: 52px;
+  margin-bottom: 8px;
+}
+
+@media (max-width: 480px) {
+  .reg-card {
+    padding: 28px 20px 24px;
+  }
+  .reg-grid-2 {
+    grid-template-columns: 1fr;
+  }
+}
