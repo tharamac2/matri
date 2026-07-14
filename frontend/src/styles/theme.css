@@ -108,6 +108,22 @@ button, input, select, textarea {
   padding: 28px 24px 64px;
 }
 
+/* ---------- Page header (shared across pages) ---------- */
+
+.page-header {
+  margin-bottom: 22px;
+}
+
+.page-header h1 {
+  font-size: 26px;
+  margin-bottom: 4px;
+}
+
+.page-header p {
+  font-size: 13.5px;
+  color: var(--ink-400);
+}
+
 /* ---------- Cards ---------- */
 
 .card {
