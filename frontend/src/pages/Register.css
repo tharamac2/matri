@@ -308,6 +308,7 @@
   }
   .reg-grid-2 {
     grid-template-columns: 1fr;
+  }
 }
 
 /* ---------- Step 4: Basic Details UI ---------- */
