@@ -147,7 +147,7 @@ def seed() -> None:
         for _ in range(20):
             sender, receiver = random.sample(members, 2)
             sent_at = now - timedelta(days=random.randint(0, 90))
-            match_status = random.choices(list(MatchStatus), weights=[40, 30, 20, 10])[0]
+            match_status = random.choices(list(MatchStatus), weights=[40, 30, 20, 5, 5])[0]
             db.add(
                 Match(
                     sender_id=sender.id,

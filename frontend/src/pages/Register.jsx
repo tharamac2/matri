@@ -346,7 +346,13 @@ const Register = () => {
               </div>
               <div>
                 <label className="field-label">Caste</label>
-                <input type="text" className="input" placeholder="e.g. Iyer" value={formData.caste} onChange={(e) => set({ caste: e.target.value })} />
+                <select className="select" value={formData.caste} onChange={(e) => set({ caste: e.target.value })}>
+                  <option value="">Select caste</option>
+                  <option value="agam udaiyar">agam udaiyar</option>
+                  <option value="Sengundhar mudhaliar">Sengundhar mudhaliar</option>
+                  <option value="Saiva vellalar">Saiva vellalar</option>
+                  <option value="Thuluva Vellalar">Thuluva Vellalar</option>
+                </select>
               </div>
             </div>
             <button className="btn btn-primary reg-cta" onClick={handleCoreDetailsSave}>Continue</button>
