@@ -67,22 +67,7 @@ const Login = () => {
         
         {/* Top Banner Section */}
         <div className="login-banner-container">
-          <div 
-            style={{ 
-              width: '100%', 
-              height: '180px', 
-              backgroundColor: '#fff',
-              display: 'flex',
-              alignItems: 'center',
-              justifyContent: 'center',
-              border: '2px dashed #999',
-              marginBottom: '10px'
-            }}
-            title="Upload your banner to frontend/public/banner.png"
-          >
-            <img src="/banner.png" alt="Matrimony Banner (Please add banner.png to public folder)" style={{ maxWidth: '100%', maxHeight: '100%', objectFit: 'contain' }} onError={(e) => e.target.style.display = 'none'} />
-            <span style={{ position: 'absolute', color: '#666', fontSize: '18px', zIndex: -1 }}>[Banner Image Placeholder]</span>
-          </div>
+          <img src="/banner.png" alt="Matrimony Banner" style={{ width: '100%', maxHeight: '180px', objectFit: 'contain', marginBottom: '10px' }} />
           <div className="login-banner-phone">
             +91 95977 50750/94433 09800
           </div>
@@ -90,24 +75,7 @@ const Login = () => {
 
         <div className="login-content">
           <div className="login-left">
-            <div 
-              style={{
-                width: '250px',
-                height: '250px',
-                backgroundColor: '#fff',
-                borderRadius: '50%',
-                display: 'flex',
-                alignItems: 'center',
-                justifyContent: 'center',
-                border: '2px dashed #999',
-                marginBottom: '10px',
-                position: 'relative'
-              }}
-              title="Upload your couple image to frontend/public/couple.png"
-            >
-              <img src="/couple.png" alt="Couple Graphic (Please add couple.png to public folder)" className="login-couple-img" style={{ position: 'absolute', width: '100%', height: '100%', objectFit: 'contain' }} onError={(e) => e.target.style.display = 'none'} />
-              <span style={{ color: '#666', fontSize: '14px', textAlign: 'center', padding: '10px' }}>[Couple Image Placeholder]</span>
-            </div>
+            <img src="/couple.png" alt="Couple Graphic" className="login-couple-img" style={{ width: '250px', height: '250px', objectFit: 'contain', marginBottom: '10px' }} />
             <h1 className="brand-title">The most trusted<br/>Matrimony</h1>
           </div>
           
