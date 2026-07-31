@@ -67,7 +67,7 @@ const Login = () => {
         
         {/* Top Banner Section */}
         <div className="login-banner-container">
-          <img src="/banner.png" alt="Matrimony Banner" style={{ width: '100%', maxHeight: '180px', objectFit: 'contain', marginBottom: '10px' }} />
+          <img src="/banner.png" alt="Matrimony Banner" style={{ width: '100%', height: 'auto', objectFit: 'contain', marginBottom: '10px' }} />
           <div className="login-banner-phone">
             +91 95977 50750/94433 09800
           </div>
