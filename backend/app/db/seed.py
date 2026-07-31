@@ -43,9 +43,12 @@ RELIGIONS = ["Hindu", "Muslim", "Christian", "Sikh", "Jain", "Buddhist"]
 CASTES = ["Brahmin", "Kshatriya", "Vaishya", "Nair", "Reddy", "Iyer", "Other"]
 CITIES = [
     ("Bengaluru", "Karnataka"), ("Chennai", "Tamil Nadu"), ("Mumbai", "Maharashtra"),
-    ("Hyderabad", "Telangana"), ("Pune", "Maharashtra"), ("Delhi", "Delhi"),
     ("Kochi", "Kerala"), ("Coimbatore", "Tamil Nadu"),
 ]
+MOTHER_TONGUES = ["Tamil", "Telugu", "Hindi", "Malayalam", "Kannada", "Marathi"]
+MARITAL_STATUSES = ["never_married", "divorced", "widowed", "awaiting_divorce"]
+RAASIS = ["Mesham", "Rishabam", "Mithunam", "Kadagam", "Simmam", "Kanni", "Thulaam", "Viruchigam", "Dhanusu", "Magaram", "Kumbam", "Meenam"]
+STARS = ["Aswini", "Bharani", "Karthigai", "Rohini", "Mirugasiridam", "Thiruvathirai", "Punarpoosam", "Poosam", "Ayilyam", "Magam"]
 EDUCATION = ["B.Tech", "M.Tech", "MBA", "B.Com", "M.Sc", "MBBS", "B.A.", "CA"]
 PROFESSIONS = [
     "Software Engineer", "Doctor", "Teacher", "Chartered Accountant",
@@ -109,6 +112,8 @@ def seed() -> None:
                 dob=_random_dob(),
                 religion=random.choice(RELIGIONS),
                 caste=random.choice(CASTES),
+                mother_tongue=random.choice(MOTHER_TONGUES),
+                marital_status=random.choice(MARITAL_STATUSES),
                 city=city,
                 state=state,
                 status=random.choices(
@@ -128,11 +133,17 @@ def seed() -> None:
                 member_id=member.id,
                 bio=f"Hi, I'm {member.name.split()[0]} looking for a meaningful connection.",
                 height_cm=random.randint(150, 190),
+                physical_status="Normal",
+                children=0 if member.marital_status == "never_married" else random.randint(0, 2),
                 education=random.choice(EDUCATION),
                 profession=random.choice(PROFESSIONS),
                 income_lpa=round(random.uniform(3, 40), 1),
                 photo_url=f"https://picsum.photos/seed/{member.id}/400/400",
                 photo_status=random.choices(list(PhotoStatus), weights=[20, 70, 10])[0],
+                horoscope={
+                    "raasi": random.choice(RAASIS),
+                    "star": random.choice(STARS),
+                },
                 partner_prefs={
                     "age_min": 22,
                     "age_max": 35,

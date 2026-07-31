@@ -16,6 +16,7 @@ export function toCardDisplay(profile) {
     id: profile.id,
     name: profile.name,
     age: age != null ? String(age) : '-',
+    dob: profile.dob || '-',
     education: profile.education || '-',
     profession: profile.profession || '-',
     salary: profile.income_lpa ? `${profile.income_lpa} LPA` : '-',

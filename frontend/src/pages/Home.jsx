@@ -127,6 +127,15 @@ const Home = () => {
     forceRender((n) => n + 1);
   };
 
+  const formatDOB = (dobStr) => {
+    if (!dobStr || dobStr === '-') return '-';
+    try {
+      const d = new Date(dobStr);
+      if (isNaN(d.getTime())) return dobStr;
+      return d.toLocaleDateString('en-GB');
+    } catch { return dobStr; }
+  };
+
   const infoRows = currentProfile
     ? [
         ['Height', currentProfile.height],
@@ -135,8 +144,10 @@ const Home = () => {
         ['Profession', currentProfile.profession],
         ['Religion', currentProfile.religious],
         ['Caste', currentProfile.caste],
-        ['Marital status', currentProfile.maritalStatus],
+        ['Marital status', currentProfile.maritalStatus?.replace('_', ' ').replace(/\b\w/g, l => l.toUpperCase())],
         ['Mother tongue', currentProfile.motherTongue],
+        ['Age / DOB', `${currentProfile.age} yrs / ${formatDOB(currentProfile.dob)}`],
+        ['Raasi / Star', `${currentProfile.horoscope?.raasi || '-'} / ${currentProfile.horoscope?.star || '-'}`],
       ]
     : [];
 

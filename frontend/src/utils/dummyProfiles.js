@@ -3,6 +3,7 @@ export const DUMMY_PROFILES = [
     id: 'dummy-1',
     name: 'Aishwarya R',
     age: 26,
+    dob: '1998-05-15',
     height_cm: 165,
     city: 'Chennai',
     state: 'Tamil Nadu',
@@ -17,12 +18,17 @@ export const DUMMY_PROFILES = [
     bio: 'Looking for a supportive and understanding partner. I love traveling, reading, and exploring new cuisines.',
     marital_status: 'never_married',
     physical_status: 'Normal',
+    horoscope: {
+      raasi: 'Mesham',
+      star: 'Aswini'
+    },
     last_active: new Date().toISOString(),
   },
   {
     id: 'dummy-2',
     name: 'Karthik S',
     age: 29,
+    dob: '1995-10-22',
     height_cm: 178,
     city: 'Bangalore',
     state: 'Karnataka',
@@ -37,12 +43,17 @@ export const DUMMY_PROFILES = [
     bio: 'Career-oriented but value family above all. Enjoy weekend treks and photography.',
     marital_status: 'never_married',
     physical_status: 'Normal',
+    horoscope: {
+      raasi: 'Rishabam',
+      star: 'Karthigai'
+    },
     last_active: new Date().toISOString(),
   },
   {
     id: 'dummy-3',
     name: 'Priya K',
     age: 27,
+    dob: '1997-03-08',
     height_cm: 160,
     city: 'Coimbatore',
     state: 'Tamil Nadu',
@@ -57,12 +68,17 @@ export const DUMMY_PROFILES = [
     bio: 'Simple, traditional, and family-oriented. Looking for someone with strong moral values.',
     marital_status: 'never_married',
     physical_status: 'Normal',
+    horoscope: {
+      raasi: 'Mithunam',
+      star: 'Mirugasiridam'
+    },
     last_active: new Date().toISOString(),
   },
   {
     id: 'dummy-4',
     name: 'Vikram N',
     age: 31,
+    dob: '1993-11-04',
     height_cm: 182,
     city: 'Chennai',
     state: 'Tamil Nadu',
@@ -77,12 +93,17 @@ export const DUMMY_PROFILES = [
     bio: 'Tech enthusiast. Returned from US last year. Love playing badminton and watching movies.',
     marital_status: 'never_married',
     physical_status: 'Normal',
+    horoscope: {
+      raasi: 'Kadagam',
+      star: 'Poosam'
+    },
     last_active: new Date().toISOString(),
   },
   {
     id: 'dummy-5',
     name: 'Meenakshi T',
     age: 25,
+    dob: '1999-01-20',
     height_cm: 163,
     city: 'Madurai',
     state: 'Tamil Nadu',
@@ -97,12 +118,17 @@ export const DUMMY_PROFILES = [
     bio: 'Passionate about medicine and helping people. Hoping to find someone who respects my career.',
     marital_status: 'never_married',
     physical_status: 'Normal',
+    horoscope: {
+      raasi: 'Simmam',
+      star: 'Magam'
+    },
     last_active: new Date(Date.now() - 3600000).toISOString(),
   },
   {
     id: 'dummy-6',
     name: 'Arjun V',
     age: 33,
+    dob: '1991-08-12',
     height_cm: 175,
     city: 'Pune',
     state: 'Maharashtra',
@@ -117,12 +143,17 @@ export const DUMMY_PROFILES = [
     bio: 'Running my own startup. Looking for a partner who is driven and independent.',
     marital_status: 'divorced',
     physical_status: 'Normal',
+    horoscope: {
+      raasi: 'Kanni',
+      star: 'Hastham'
+    },
     last_active: new Date(Date.now() - 86400000).toISOString(),
   },
   {
     id: 'dummy-7',
     name: 'Lakshmi P',
     age: 28,
+    dob: '1996-07-30',
     height_cm: 158,
     city: 'Trichy',
     state: 'Tamil Nadu',
@@ -137,12 +168,17 @@ export const DUMMY_PROFILES = [
     bio: 'Friendly and easy-going. Love spending time with family and cooking traditional dishes.',
     marital_status: 'never_married',
     physical_status: 'Normal',
+    horoscope: {
+      raasi: 'Thulaam',
+      star: 'Swathi'
+    },
     last_active: new Date().toISOString(),
   },
   {
     id: 'dummy-8',
     name: 'Siddharth M',
     age: 30,
+    dob: '1994-12-18',
     height_cm: 177,
     city: 'Hyderabad',
     state: 'Telangana',
@@ -157,12 +193,17 @@ export const DUMMY_PROFILES = [
     bio: 'Fun loving and adventurous. Enjoy road trips and listening to classic rock.',
     marital_status: 'never_married',
     physical_status: 'Normal',
+    horoscope: {
+      raasi: 'Viruchigam',
+      star: 'Anusham'
+    },
     last_active: new Date().toISOString(),
   },
   {
     id: 'dummy-9',
     name: 'Nandini R',
     age: 26,
+    dob: '1998-05-15',
     height_cm: 168,
     city: 'Chennai',
     state: 'Tamil Nadu',
@@ -177,12 +218,17 @@ export const DUMMY_PROFILES = [
     bio: 'Creative soul. Passionate about art and design. Looking for a partner with a good sense of humor.',
     marital_status: 'never_married',
     physical_status: 'Normal',
+    horoscope: {
+      raasi: 'Dhanusu',
+      star: 'Moolam'
+    },
     last_active: new Date(Date.now() - 7200000).toISOString(),
   },
   {
     id: 'dummy-10',
     name: 'Rahul C',
     age: 32,
+    dob: '1992-06-25',
     height_cm: 180,
     city: 'Chennai',
     state: 'Tamil Nadu',
@@ -197,6 +243,10 @@ export const DUMMY_PROFILES = [
     bio: 'Financially independent and responsible. Looking for someone who values transparency and trust.',
     marital_status: 'never_married',
     physical_status: 'Normal',
+    horoscope: {
+      raasi: 'Magaram',
+      star: 'Thiruvonam'
+    },
     last_active: new Date().toISOString(),
   }
 ];
