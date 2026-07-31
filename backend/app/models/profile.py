@@ -27,6 +27,7 @@ class Profile(Base):
     bio: Mapped[str | None] = mapped_column(Text, nullable=True)
     height_cm: Mapped[int | None] = mapped_column(Integer, nullable=True)
     physical_status: Mapped[str | None] = mapped_column(String(60), nullable=True)
+    challenged_details: Mapped[str | None] = mapped_column(String(255), nullable=True)
     children: Mapped[int | None] = mapped_column(Integer, nullable=True)
     education: Mapped[str | None] = mapped_column(String(120), nullable=True)
     profession: Mapped[str | None] = mapped_column(String(120), nullable=True)

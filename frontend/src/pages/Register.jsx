@@ -98,8 +98,10 @@ const Register = () => {
       await api.put('/me', {
         height_cm: formData.height ? Number(formData.height) : undefined,
         physical_status: formData.physicalStatus || undefined,
+        challenged_details: formData.physicalStatus === 'Physical challenged' ? (formData.challengedDetails || undefined) : undefined,
         marital_status: formData.maritalStatus || undefined,
-        children: formData.children ? Number(formData.children) : undefined,
+        children: formData.maritalStatus && formData.maritalStatus !== 'Never Married' ? (formData.children ? Number(formData.children) : undefined) : undefined,
+        religion: formData.religion || undefined,
         sub_caste: formData.subCaste || undefined,
       });
     } catch (err) {
@@ -344,6 +346,13 @@ const Register = () => {
                   </div>
                 </div>
 
+                {formData.physicalStatus === 'Physical challenged' && (
+                  <div className="step-4-field">
+                    <label>Challenged details</label>
+                    <input type="text" className="input" placeholder="Mention the details here" value={formData.challengedDetails || ''} onChange={(e) => set({ challengedDetails: e.target.value })} />
+                  </div>
+                )}
+
                 <div className="step-4-field">
                   <label>Marital status</label>
                   <div className="status-btn-group wrap">
@@ -368,8 +377,13 @@ const Register = () => {
                 )}
 
                 <div className="step-4-field">
+                  <label>Religion</label>
+                  <input type="text" className="input" placeholder="Select religion" value={formData.religion || ''} onChange={(e) => set({ religion: e.target.value })} />
+                </div>
+
+                <div className="step-4-field">
                   <label>sub caste</label>
-                  <input type="text" className="input" placeholder="Select religion" value={formData.subCaste || ''} onChange={(e) => set({ subCaste: e.target.value })} />
+                  <input type="text" className="input" placeholder="mention here" value={formData.subCaste || ''} onChange={(e) => set({ subCaste: e.target.value })} />
                 </div>
               </div>
 

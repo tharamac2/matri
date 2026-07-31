@@ -72,6 +72,7 @@ def _to_card(member: Member, profile: Profile | None) -> ProfileCard:
             bio=profile.bio,
             height_cm=profile.height_cm,
             physical_status=profile.physical_status,
+            challenged_details=profile.challenged_details,
             children=profile.children,
             education=profile.education,
             employment_type=profile.employment_type,
@@ -258,7 +259,7 @@ def update_me(
 
     member_fields = {"name", "dob", "religion", "caste", "sub_caste", "city", "district", "state", "country", "address", "marital_status", "mother_tongue"}
     profile_fields = {
-        "bio", "height_cm", "physical_status", "children", "education", "employment_type", "profession", "income_lpa",
+        "bio", "height_cm", "physical_status", "challenged_details", "children", "education", "employment_type", "profession", "income_lpa",
         "photo_url", "photos", "partner_prefs", "settings",
         "family_details", "lifestyle", "physical_attributes", "horoscope", "id_document_url",
     }

@@ -60,6 +60,7 @@ class ProfileCard(BaseModel):
     bio: str | None = None
     height_cm: int | None = None
     physical_status: str | None = None
+    challenged_details: str | None = None
     children: int | None = None
     education: str | None = None
     employment_type: str | None = None
@@ -101,6 +102,7 @@ class MemberMeUpdate(BaseModel):
     bio: str | None = None
     height_cm: int | None = None
     physical_status: str | None = None
+    challenged_details: str | None = None
     children: int | None = None
     education: str | None = None
     employment_type: str | None = None
