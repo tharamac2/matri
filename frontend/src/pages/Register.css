@@ -308,5 +308,118 @@
   }
   .reg-grid-2 {
     grid-template-columns: 1fr;
+}
+
+/* ---------- Step 4: Basic Details UI ---------- */
+
+.new-step-4-container {
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.step-4-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 24px;
+}
+
+.step-4-back-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: none;
+  border: none;
+  font-family: var(--font-serif);
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--text-main);
+  cursor: pointer;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.step-4-indicator {
+  font-family: var(--font-serif);
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--text-main);
+  text-transform: uppercase;
+}
+
+.step-4-form-card {
+  background: white;
+  border-radius: 20px;
+  padding: 32px 40px;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.04);
+}
+
+.step-4-section {
+  margin-bottom: 28px;
+}
+
+.step-4-section-title {
+  font-family: var(--font-serif);
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--text-main);
+  margin-bottom: 16px;
+}
+
+.step-4-field {
+  margin-bottom: 16px;
+}
+
+.step-4-field label {
+  display: block;
+  font-family: var(--font-serif);
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--text-main);
+  margin-bottom: 8px;
+  text-transform: uppercase;
+}
+
+.step-4-field .input,
+.step-4-field .select {
+  width: 100%;
+  padding: 14px 16px;
+  border: 1px solid #d2d2d2;
+  border-radius: 8px;
+  font-size: 16px;
+  color: var(--text-main);
+  background-color: transparent;
+}
+
+.step-4-field .input::placeholder {
+  color: #a0a0a0;
+}
+
+.btn-gold {
+  background: linear-gradient(180deg, #F3CD76 0%, #CD9A41 100%);
+  color: var(--text-main);
+  font-weight: 600;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  box-shadow: 0 4px 10px rgba(205, 154, 65, 0.3);
+  transition: opacity 0.2s;
+}
+
+.btn-gold:hover {
+  opacity: 0.9;
+}
+
+.step-4-next-btn {
+  width: 100%;
+  padding: 16px;
+  font-size: 18px;
+  font-family: var(--font-serif);
+  margin-top: 16px;
+}
+
+@media (max-width: 600px) {
+  .step-4-form-card {
+    padding: 24px;
   }
 }

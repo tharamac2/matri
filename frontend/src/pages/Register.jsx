@@ -93,24 +93,17 @@ const Register = () => {
 
   // ---- Step 4: core details ----
   const handleCoreDetailsSave = async () => {
-    if (!formData.dob) {
-      setError('Please enter your date of birth.');
-      return;
-    }
-    const age = Math.floor((Date.now() - new Date(formData.dob).getTime()) / 3.15576e10);
-    if (age < 18) {
-      setError('You must be at least 18 years old to register.');
-      return;
-    }
     setError('');
     try {
       await api.put('/me', {
-        dob: formData.dob,
-        height_cm: formData.height ? Number(formData.height) : undefined,
-        city: formData.city || undefined,
+        country: formData.country || undefined,
+        state: formData.state || undefined,
+        district: formData.district || undefined,
+        address: formData.address || undefined,
         education: formData.education || undefined,
-        religion: formData.religion || undefined,
-        caste: formData.caste || undefined,
+        employment_type: formData.employmentType || undefined,
+        profession: formData.profession || undefined,
+        income_lpa: formData.incomeLpa ? Number(formData.incomeLpa) : undefined,
       });
     } catch (err) {
       console.error('Failed to save profile details:', err);
@@ -311,51 +304,99 @@ const Register = () => {
         )}
 
         {step === 4 && (
-          <div className="reg-step animate-fade-in">
-            <h2>Tell us about you</h2>
-            <p className="reg-subtitle">This helps us find better matches</p>
-            <div className="reg-grid-2">
-              <div>
-                <label className="field-label">Date of birth</label>
-                <input
-                  type="date" className="input"
-                  max={new Date(new Date().setFullYear(new Date().getFullYear() - 18)).toISOString().split('T')[0]}
-                  value={formData.dob} onChange={(e) => set({ dob: e.target.value })}
-                />
-              </div>
-              <div>
-                <label className="field-label">Height (cm)</label>
-                <input type="number" className="input" placeholder="e.g. 170" min="120" max="220" value={formData.height} onChange={(e) => set({ height: e.target.value })} />
-              </div>
-              <div>
-                <label className="field-label">City</label>
-                <input type="text" className="input" placeholder="e.g. Chennai" value={formData.city} onChange={(e) => set({ city: e.target.value })} />
-              </div>
-              <div>
-                <label className="field-label">Education</label>
-                <input type="text" className="input" placeholder="e.g. B.Tech" value={formData.education} onChange={(e) => set({ education: e.target.value })} />
-              </div>
-              <div>
-                <label className="field-label">Religion</label>
-                <select className="select" value={formData.religion} onChange={(e) => set({ religion: e.target.value })}>
-                  <option value="">Select religion</option>
-                  {['Hindu', 'Muslim', 'Christian', 'Sikh', 'Jain', 'Buddhist', 'Other'].map((r) => (
-                    <option key={r} value={r}>{r}</option>
-                  ))}
-                </select>
-              </div>
-              <div>
-                <label className="field-label">Caste</label>
-                <select className="select" value={formData.caste} onChange={(e) => set({ caste: e.target.value })}>
-                  <option value="">Select caste</option>
-                  <option value="agam udaiyar">agam udaiyar</option>
-                  <option value="Sengundhar mudhaliar">Sengundhar mudhaliar</option>
-                  <option value="Saiva vellalar">Saiva vellalar</option>
-                  <option value="Thuluva Vellalar">Thuluva Vellalar</option>
-                </select>
-              </div>
+          <div className="reg-step animate-fade-in new-step-4-container">
+            <div className="step-4-header">
+              <button type="button" className="step-4-back-btn" onClick={() => setStep(3)}>
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+                BASIC DETAILS
+              </button>
+              <span className="step-4-indicator">STEP 3/4</span>
             </div>
-            <button className="btn btn-primary reg-cta" onClick={handleCoreDetailsSave}>Continue</button>
+
+            <div className="step-4-form-card">
+              {/* Personal Details */}
+              <div className="step-4-section">
+                <h3 className="step-4-section-title">Personal Details</h3>
+                
+                <div className="step-4-field">
+                  <label>Country</label>
+                  <select className="select" value={formData.country || ''} onChange={(e) => set({ country: e.target.value })}>
+                    <option value="">Choose</option>
+                    <option value="India">India</option>
+                  </select>
+                </div>
+
+                <div className="step-4-field">
+                  <label>STATE</label>
+                  <select className="select" value={formData.state || ''} onChange={(e) => set({ state: e.target.value })}>
+                    <option value="">Choose</option>
+                    <option value="TAMIL NADU">TAMIL NADU</option>
+                    <option value="KERALA">KERALA</option>
+                    <option value="KARNATAKA">KARNATAKA</option>
+                    <option value="GOA">GOA</option>
+                    <option value="ANDHRA PRADESH">ANDHRA PRADESH</option>
+                    <option value="THELUNGANA">THELUNGANA</option>
+                  </select>
+                </div>
+
+                <div className="step-4-field">
+                  <label>DISTRICT</label>
+                  <select className="select" value={formData.district || ''} onChange={(e) => set({ district: e.target.value })}>
+                    <option value="">Choose</option>
+                    <option value="CHENNAI">CHENNAI</option>
+                    <option value="KANCHIPURAM">KANCHIPURAM</option>
+                    <option value="VELLORE">VELLORE</option>
+                    <option value="CENGALPET">CENGALPET</option>
+                    <option value="THIRUVALLUR">THIRUVALLUR</option>
+                    <option value="RANIPETAI">RANIPETAI</option>
+                  </select>
+                </div>
+              </div>
+
+              {/* Professional Details */}
+              <div className="step-4-section">
+                <h3 className="step-4-section-title">Professional Details</h3>
+                
+                <div className="step-4-field">
+                  <input type="text" className="input" placeholder="Education details" value={formData.education || ''} onChange={(e) => set({ education: e.target.value })} />
+                </div>
+                <div className="step-4-field">
+                  <input type="text" className="input" placeholder="Employment type" value={formData.employmentType || ''} onChange={(e) => set({ employmentType: e.target.value })} />
+                </div>
+                <div className="step-4-field">
+                  <input type="text" className="input" placeholder="Occupation" value={formData.profession || ''} onChange={(e) => set({ profession: e.target.value })} />
+                </div>
+              </div>
+
+              {/* Annual Income */}
+              <div className="step-4-section">
+                <h3 className="step-4-section-title">Annual Income</h3>
+                
+                <div className="step-4-field">
+                  <input type="number" className="input" placeholder="Annual income" value={formData.incomeLpa || ''} onChange={(e) => set({ incomeLpa: e.target.value })} />
+                </div>
+                <div className="step-4-field">
+                  <select className="select" value={formData.incomeBracket || ''} onChange={(e) => set({ incomeBracket: e.target.value })}>
+                    <option value="">Select annual income</option>
+                    <option value="0-2">0 - 2 Lakhs</option>
+                    <option value="2-5">2 - 5 Lakhs</option>
+                    <option value="5-10">5 - 10 Lakhs</option>
+                    <option value="10+">10+ Lakhs</option>
+                  </select>
+                </div>
+              </div>
+
+              {/* Address */}
+              <div className="step-4-section">
+                <h3 className="step-4-section-title">Address</h3>
+                
+                <div className="step-4-field">
+                  <input type="text" className="input" placeholder="Address" value={formData.address || ''} onChange={(e) => set({ address: e.target.value })} />
+                </div>
+              </div>
+
+              <button className="btn btn-gold step-4-next-btn" onClick={handleCoreDetailsSave}>Next</button>
+            </div>
           </div>
         )}
 

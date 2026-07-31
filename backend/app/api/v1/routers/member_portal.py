@@ -58,7 +58,10 @@ def _to_card(member: Member, profile: Profile | None) -> ProfileCard:
         "religion": member.religion,
         "caste": member.caste,
         "city": member.city,
+        "district": member.district,
         "state": member.state,
+        "country": member.country,
+        "address": member.address,
         "marital_status": member.marital_status.value if member.marital_status else None,
         "mother_tongue": member.mother_tongue,
         "last_active": member.last_active,
@@ -68,6 +71,7 @@ def _to_card(member: Member, profile: Profile | None) -> ProfileCard:
             bio=profile.bio,
             height_cm=profile.height_cm,
             education=profile.education,
+            employment_type=profile.employment_type,
             profession=profile.profession,
             income_lpa=float(profile.income_lpa) if profile.income_lpa is not None else None,
             photo_url=profile.photo_url,
@@ -249,9 +253,9 @@ def update_me(
         profile = Profile(member_id=member.id)
         db.add(profile)
 
-    member_fields = {"name", "dob", "religion", "caste", "city", "state", "marital_status", "mother_tongue"}
+    member_fields = {"name", "dob", "religion", "caste", "city", "district", "state", "country", "address", "marital_status", "mother_tongue"}
     profile_fields = {
-        "bio", "height_cm", "education", "profession", "income_lpa",
+        "bio", "height_cm", "education", "employment_type", "profession", "income_lpa",
         "photo_url", "photos", "partner_prefs", "settings",
         "family_details", "lifestyle", "physical_attributes", "horoscope", "id_document_url",
     }

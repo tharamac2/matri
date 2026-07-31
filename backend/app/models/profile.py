@@ -28,6 +28,7 @@ class Profile(Base):
     height_cm: Mapped[int | None] = mapped_column(Integer, nullable=True)
     education: Mapped[str | None] = mapped_column(String(120), nullable=True)
     profession: Mapped[str | None] = mapped_column(String(120), nullable=True)
+    employment_type: Mapped[str | None] = mapped_column(String(120), nullable=True)
     income_lpa: Mapped[float | None] = mapped_column(Numeric(10, 2), nullable=True)
     photo_url: Mapped[str | None] = mapped_column(String(500), nullable=True)
     photo_status: Mapped[PhotoStatus] = mapped_column(Enum(PhotoStatus), default=PhotoStatus.pending, nullable=False)
