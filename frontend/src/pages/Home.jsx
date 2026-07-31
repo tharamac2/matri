@@ -10,6 +10,7 @@ import CompatBadge from '../components/CompatBadge.jsx';
 import GunaBadge from '../components/GunaBadge.jsx';
 import BlurText from '../components/BlurText.jsx';
 import CountUp from '../components/CountUp.jsx';
+import { DUMMY_PROFILES } from '../utils/dummyProfiles.js';
 import './Home.css';
 
 const HeartIcon = ({ filled }) => (
@@ -62,8 +63,11 @@ const Home = () => {
   useEffect(() => {
     api
       .get('/profiles')
-      .then(({ data }) => setRawProfiles(data))
-      .catch((err) => console.error('Failed to load profiles:', err))
+      .then(({ data }) => setRawProfiles(data.length > 0 ? data : DUMMY_PROFILES))
+      .catch((err) => {
+        console.error('Failed to load profiles:', err);
+        setRawProfiles(DUMMY_PROFILES);
+      })
       .finally(() => setLoading(false));
     api.get('/me').then(({ data }) => { setPartnerPrefs(data.partner_prefs); setMyHoroscope(data.horoscope); }).catch(() => {});
   }, []);

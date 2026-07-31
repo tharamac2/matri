@@ -91,6 +91,13 @@ const Register = () => {
     }
   };
 
+  const MARITAL_STATUS_MAP = {
+    'Never Married': 'never_married',
+    'Widow': 'widowed',
+    'Awaiting divorce': 'awaiting_divorce',
+    'Divorced': 'divorced'
+  };
+
   // ---- Step 4: Step 2/4 Details ----
   const handleStep2Save = async () => {
     setError('');
@@ -99,7 +106,7 @@ const Register = () => {
         height_cm: formData.height ? Number(formData.height) : undefined,
         physical_status: formData.physicalStatus || undefined,
         challenged_details: formData.physicalStatus === 'Physical challenged' ? (formData.challengedDetails || undefined) : undefined,
-        marital_status: formData.maritalStatus || undefined,
+        marital_status: formData.maritalStatus ? MARITAL_STATUS_MAP[formData.maritalStatus] : undefined,
         children: formData.maritalStatus && formData.maritalStatus !== 'Never Married' ? (formData.children ? Number(formData.children) : undefined) : undefined,
         religion: formData.religion || undefined,
         sub_caste: formData.subCaste || undefined,
