@@ -50,6 +50,7 @@ class ProfileCard(BaseModel):
     dob: date | None = None
     religion: str | None = None
     caste: str | None = None
+    sub_caste: str | None = None
     city: str | None = None
     district: str | None = None
     state: str | None = None
@@ -58,6 +59,8 @@ class ProfileCard(BaseModel):
     mother_tongue: str | None = None
     bio: str | None = None
     height_cm: int | None = None
+    physical_status: str | None = None
+    children: int | None = None
     education: str | None = None
     employment_type: str | None = None
     profession: str | None = None
@@ -87,6 +90,7 @@ class MemberMeUpdate(BaseModel):
     dob: date | None = None
     religion: str | None = None
     caste: str | None = None
+    sub_caste: str | None = None
     city: str | None = None
     district: str | None = None
     state: str | None = None
@@ -96,6 +100,8 @@ class MemberMeUpdate(BaseModel):
     mother_tongue: str | None = None
     bio: str | None = None
     height_cm: int | None = None
+    physical_status: str | None = None
+    children: int | None = None
     education: str | None = None
     employment_type: str | None = None
     profession: str | None = None

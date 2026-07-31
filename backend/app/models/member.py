@@ -37,6 +37,7 @@ class Member(Base):
     dob: Mapped[date] = mapped_column(Date, nullable=True)
     religion: Mapped[str | None] = mapped_column(String(60), nullable=True)
     caste: Mapped[str | None] = mapped_column(String(60), nullable=True)
+    sub_caste: Mapped[str | None] = mapped_column(String(60), nullable=True)
     city: Mapped[str | None] = mapped_column(String(80), nullable=True)
     district: Mapped[str | None] = mapped_column(String(80), nullable=True)
     state: Mapped[str | None] = mapped_column(String(80), nullable=True)

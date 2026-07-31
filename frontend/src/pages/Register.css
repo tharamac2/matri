@@ -424,3 +424,30 @@
     padding: 24px;
   }
 }
+
+.status-btn-group {
+  display: flex;
+  gap: 12px;
+}
+
+.status-btn-group.wrap {
+  flex-wrap: wrap;
+}
+
+.status-btn {
+  padding: 12px 24px;
+  background-color: white;
+  border: 1px solid #777;
+  border-radius: 8px;
+  font-family: var(--font-serif);
+  font-size: 16px;
+  color: var(--text-main);
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.status-btn.selected {
+  background-color: #6CBA7D;
+  border-color: #6CBA7D;
+  color: white;
+}

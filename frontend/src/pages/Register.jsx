@@ -91,8 +91,25 @@ const Register = () => {
     }
   };
 
-  // ---- Step 4: core details ----
-  const handleCoreDetailsSave = async () => {
+  // ---- Step 4: Step 2/4 Details ----
+  const handleStep2Save = async () => {
+    setError('');
+    try {
+      await api.put('/me', {
+        height_cm: formData.height ? Number(formData.height) : undefined,
+        physical_status: formData.physicalStatus || undefined,
+        marital_status: formData.maritalStatus || undefined,
+        children: formData.children ? Number(formData.children) : undefined,
+        sub_caste: formData.subCaste || undefined,
+      });
+    } catch (err) {
+      console.error('Failed to save step 2 details:', err);
+    }
+    setStep(5);
+  };
+
+  // ---- Step 5: Step 3/4 Details ----
+  const handleStep3Save = async () => {
     setError('');
     try {
       await api.put('/me', {
@@ -108,33 +125,22 @@ const Register = () => {
     } catch (err) {
       console.error('Failed to save profile details:', err);
     }
-    setStep(5);
-  };
-
-  // ---- Step 5: community & horoscope (skippable) ----
-  const handleCommunitySave = async () => {
-    try {
-      await api.put('/me', {
-        marital_status: formData.maritalStatus || undefined,
-        mother_tongue: formData.motherTongue || undefined,
-        horoscope: (formData.rashi || formData.nakshatra || formData.gothra || formData.manglik || formData.birthTime || formData.birthPlace)
-          ? {
-              rashi: formData.rashi || undefined,
-              nakshatra: formData.nakshatra || undefined,
-              gothra: formData.gothra || undefined,
-              manglik: formData.manglik || undefined,
-              birth_time: formData.birthTime || undefined,
-              birth_place: formData.birthPlace || undefined,
-            }
-          : undefined,
-      });
-    } catch (err) {
-      console.error('Failed to save community/horoscope details:', err);
-    }
     setStep(6);
   };
 
-  // ---- Step 6: family & lifestyle (skippable) ----
+  // ---- Step 6: community & horoscope (skippable) ----
+  const handleCommunitySave = async () => {
+    try {
+      await api.put('/me', {
+        mother_tongue: formData.motherTongue || undefined,
+      });
+    } catch (err) {
+      console.error('Failed to save community details:', err);
+    }
+    setStep(7);
+  };
+
+  // ---- Step 7: family & lifestyle (skippable) ----
   const handleFamilyLifestyleSave = async () => {
     try {
       await api.put('/me', {
@@ -157,26 +163,26 @@ const Register = () => {
     } catch (err) {
       console.error('Failed to save family/lifestyle details:', err);
     }
-    setStep(7);
+    setStep(8);
   };
 
-  // ---- Step 7: photo + bio ----
+  // ---- Step 8: photo + bio ----
   const handlePhotoBioSave = async () => {
     try {
       await api.put('/me', { bio: formData.bio || undefined });
     } catch (err) {
       console.error('Failed to save bio:', err);
     }
-    setStep(8);
+    setStep(9);
   };
 
-  // ---- Step 8: plan ----
+  // ---- Step 9: plan ----
   const handlePayment = (planLabel) => {
     const planId = PLAN_IDS[planLabel];
     if (planId) {
       api.post('/subscribe', { plan_id: planId }).catch((err) => console.error('Subscribe failed:', err));
     }
-    setStep(9);
+    setStep(10);
   };
 
   const handleFinish = () => navigate('/home');
@@ -310,6 +316,75 @@ const Register = () => {
                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
                 BASIC DETAILS
               </button>
+              <span className="step-4-indicator">STEP 2/4</span>
+            </div>
+
+            <div className="step-4-form-card">
+              <div className="step-4-section">
+                <h3 className="step-4-section-title">Personal Details</h3>
+                
+                <div className="step-4-field">
+                  <label>Height</label>
+                  <input type="number" className="input" placeholder="Mention Height Here" value={formData.height || ''} onChange={(e) => set({ height: e.target.value })} />
+                </div>
+
+                <div className="step-4-field">
+                  <label>Physical Status</label>
+                  <div className="status-btn-group">
+                    {['Normal', 'Physical challenged'].map((status) => (
+                      <button
+                        key={status}
+                        type="button"
+                        className={`status-btn ${formData.physicalStatus === status ? 'selected' : ''}`}
+                        onClick={() => set({ physicalStatus: status })}
+                      >
+                        {status}
+                      </button>
+                    ))}
+                  </div>
+                </div>
+
+                <div className="step-4-field">
+                  <label>Marital status</label>
+                  <div className="status-btn-group wrap">
+                    {['Never Married', 'Widow', 'Awaiting divorce', 'Divorced'].map((status) => (
+                      <button
+                        key={status}
+                        type="button"
+                        className={`status-btn ${formData.maritalStatus === status ? 'selected' : ''}`}
+                        onClick={() => set({ maritalStatus: status })}
+                      >
+                        {status}
+                      </button>
+                    ))}
+                  </div>
+                </div>
+
+                {formData.maritalStatus && formData.maritalStatus !== 'Never Married' && (
+                  <div className="step-4-field">
+                    <label>no . of . childrens</label>
+                    <input type="number" className="input" placeholder="mention here" value={formData.children || ''} onChange={(e) => set({ children: e.target.value })} />
+                  </div>
+                )}
+
+                <div className="step-4-field">
+                  <label>sub caste</label>
+                  <input type="text" className="input" placeholder="Select religion" value={formData.subCaste || ''} onChange={(e) => set({ subCaste: e.target.value })} />
+                </div>
+              </div>
+
+              <button className="btn btn-gold step-4-next-btn" onClick={handleStep2Save}>Next</button>
+            </div>
+          </div>
+        )}
+
+        {step === 5 && (
+          <div className="reg-step animate-fade-in new-step-4-container">
+            <div className="step-4-header">
+              <button type="button" className="step-4-back-btn" onClick={() => setStep(4)}>
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+                BASIC DETAILS
+              </button>
               <span className="step-4-indicator">STEP 3/4</span>
             </div>
 
@@ -395,16 +470,16 @@ const Register = () => {
                 </div>
               </div>
 
-              <button className="btn btn-gold step-4-next-btn" onClick={handleCoreDetailsSave}>Next</button>
+              <button className="btn btn-gold step-4-next-btn" onClick={handleStep3Save}>Next</button>
             </div>
           </div>
         )}
 
-        {step === 5 && (
+        {step === 6 && (
           <div className="reg-step animate-fade-in">
             <div className="reg-plans-header">
               <h2>Community &amp; horoscope</h2>
-              <button type="button" className="reg-link-btn" onClick={() => setStep(6)}>Skip for now</button>
+              <button type="button" className="reg-link-btn" onClick={() => setStep(7)}>Skip for now</button>
             </div>
             <p className="reg-subtitle">Optional — helps with community and Kundli matching</p>
             <div className="reg-grid-2">
@@ -461,11 +536,11 @@ const Register = () => {
           </div>
         )}
 
-        {step === 6 && (
+        {step === 7 && (
           <div className="reg-step animate-fade-in">
             <div className="reg-plans-header">
               <h2>Family &amp; lifestyle</h2>
-              <button type="button" className="reg-link-btn" onClick={() => setStep(7)}>Skip for now</button>
+              <button type="button" className="reg-link-btn" onClick={() => setStep(8)}>Skip for now</button>
             </div>
             <p className="reg-subtitle">Optional — gives prospects a fuller picture of your background</p>
             <div className="reg-grid-2">
@@ -545,7 +620,7 @@ const Register = () => {
           </div>
         )}
 
-        {step === 7 && (
+        {step === 8 && (
           <div className="reg-step animate-fade-in">
             <h2>Add a photo &amp; bio</h2>
             <p className="reg-subtitle">Profiles with photos get 10x more responses</p>
